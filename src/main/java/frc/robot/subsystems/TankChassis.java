@@ -28,11 +28,11 @@ public class TankChassis extends SubsystemBase {
   }
 
 
-  public void drive(double speed) {
-    frontLeft.set(speed);
-    frontRight.set(speed);
-    backLeft.set(speed);
-    backRight.set(speed);
+  public void drive(double speed, double turnSpeed) {
+    frontLeft.set(speed - turnSpeed);
+    frontRight.set(speed + turnSpeed);
+    backLeft.set(speed - turnSpeed);
+    backRight.set(speed + turnSpeed);
   }
 
   @Override

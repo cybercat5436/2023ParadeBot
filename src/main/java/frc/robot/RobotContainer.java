@@ -6,8 +6,10 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
+import frc.robot.commands.DriveChassis;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.TankChassis;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -30,6 +32,12 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    TankChassis tankChassis = new TankChassis();
+    DriveChassis driveChassis = new DriveChassis(() -> -0.3*m_driverController.getLeftY(),
+    () -> -0.3*m_driverController.getRightX() ,
+    tankChassis); 
+  
+  tankChassis.setDefaultCommand(driveChassis);
   }
 
   /**
