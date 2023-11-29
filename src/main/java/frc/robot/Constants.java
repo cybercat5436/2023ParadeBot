@@ -22,6 +22,6 @@ public final class Constants {
     public static int frontRight = 2;
     public static int backLeft = 3;
     public static int backRight = 4;
-
+    public static int reindeerMotor = 5;
   }  
 }
